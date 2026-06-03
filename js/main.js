@@ -1,3 +1,9 @@
+try {
+  localStorage.removeItem('lnt-theme');
+} catch (_) {
+  /* ignore */
+}
+
 const header = document.querySelector('.site-header');
 const yearEl = document.getElementById('year');
 const menuBtn = document.getElementById('nav-menu-btn');
