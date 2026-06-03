@@ -868,7 +868,7 @@ a:hover {
 
   .show-tickets {
     grid-column: 1 / -1;
-    justify-self: start;
+    justify-self: center;
   }
 
   .hero-frame {
