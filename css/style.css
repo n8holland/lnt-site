@@ -233,8 +233,8 @@ a:hover {
 
 .nav-link,
 .mobile-nav__link {
-  color: var(--neon-teal-bright);
-  text-shadow: var(--neon-glow-teal);
+  color: var(--neon-pink-bright);
+  text-shadow: var(--neon-glow-pink);
 }
 
 .nav-link {
@@ -256,21 +256,21 @@ a:hover {
   text-align: center;
   white-space: nowrap;
   line-height: 1.1;
-  color: var(--neon-pink-bright);
-  text-shadow: var(--neon-glow-pink);
+  color: var(--neon-teal-bright);
+  text-shadow: var(--neon-glow-teal);
   cursor: pointer;
 }
 
 .nav-link:hover,
 .nav-link:focus-visible {
   color: #fff;
-  text-shadow: var(--neon-glow-teal-intense);
+  text-shadow: var(--neon-glow-pink-intense);
 }
 
 .logo:hover,
 .logo:focus-visible {
   color: #fff;
-  text-shadow: var(--neon-glow-pink-intense);
+  text-shadow: var(--neon-glow-teal-intense);
 }
 
 .nav-menu-btn,
@@ -283,9 +283,12 @@ a:hover {
 }
 
 .nav-menu-btn {
-  --burger-bun: #e8c078;
-  --burger-patty: #6d3f22;
-  --french-fry: #f2c842;
+  --burger-bun: #f0d092;
+  --burger-tomato: #ff4d82;
+  --burger-lettuce: #2ce8b8;
+  --burger-patty: #6b4f58;
+  --french-fry: #7af8e8;
+  --french-fry-hot: #00d4b8;
   position: relative;
   z-index: 2;
   justify-self: start;
@@ -394,18 +397,22 @@ a:hover {
 .nav-menu-btn__line--bun-top,
 .nav-menu-btn__line--bun-bottom {
   background: var(--burger-bun);
+  box-shadow: 0 0 3px rgba(240, 208, 146, 0.35);
 }
 
 .nav-menu-btn__line--tomato {
-  background: #d63b2f;
+  background: var(--burger-tomato);
+  box-shadow: 0 0 4px rgba(255, 77, 130, 0.45);
 }
 
 .nav-menu-btn__line--lettuce {
-  background: #72b84e;
+  background: var(--burger-lettuce);
+  box-shadow: 0 0 4px rgba(0, 212, 184, 0.4);
 }
 
 .nav-menu-btn__line--patty {
   background: var(--burger-patty);
+  box-shadow: 0 0 4px rgba(107, 79, 88, 0.55);
 }
 
 .nav-menu-btn[aria-expanded="true"] .nav-menu-btn__stack {
@@ -446,15 +453,15 @@ a:hover {
     background 0.24s ease;
   background: linear-gradient(
     90deg,
-    var(--burger-bun) 0%,
-    var(--french-fry) 20%,
-    #f5d76e 50%,
-    var(--french-fry) 80%,
-    #e8b84a 100%
+    var(--french-fry-hot) 0%,
+    var(--french-fry) 35%,
+    #ffa8c8 65%,
+    var(--burger-tomato) 100%
   );
   box-shadow:
-    0 0 5px rgba(242, 200, 66, 0.45),
-    inset 0 1px 0 rgba(255, 240, 180, 0.55);
+    0 0 6px rgba(0, 212, 184, 0.55),
+    0 0 8px rgba(255, 77, 130, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .nav-menu-btn[aria-expanded="true"] .nav-menu-btn__line--bun-top {
@@ -501,7 +508,7 @@ a:hover {
 .mobile-nav__link:hover,
 .mobile-nav__link:focus-visible {
   color: #fff;
-  text-shadow: var(--neon-glow-teal-intense);
+  text-shadow: var(--neon-glow-pink-intense);
 }
 
 .site-header.is-menu-open {
@@ -578,14 +585,15 @@ a:hover {
 .section--shows {
   background: var(--charcoal);
   max-width: none;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid rgba(0, 212, 184, 0.35);
+  border-bottom: 1px solid rgba(0, 212, 184, 0.35);
 }
 
 .section--shows .section-head {
   max-width: 54rem;
   margin-left: auto;
   margin-right: auto;
+  border-bottom-color: var(--neon-pink);
 }
 
 .shows-list {
@@ -595,17 +603,17 @@ a:hover {
   max-width: 54rem;
 }
 
-.show {
+.section--shows .show {
   display: grid;
   grid-template-columns: 5rem 1fr auto;
   gap: 1.25rem 2rem;
   align-items: center;
   padding: 1.75rem 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(0, 212, 184, 0.3);
 }
 
-.show:first-of-type {
-  border-top: 1px solid var(--border);
+.section--shows .show:first-of-type {
+  border-top: 1px solid rgba(0, 212, 184, 0.3);
 }
 
 .show:hover {
@@ -624,7 +632,7 @@ a:hover {
   gap: 0.35rem;
   margin: 0;
   padding: 0 0.75rem;
-  border-left: 4px solid var(--orange);
+  border-left: 4px solid var(--neon-pink);
   line-height: 1;
 }
 
@@ -693,29 +701,29 @@ a:hover {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 0.7rem 1.15rem;
-  color: var(--paper);
-  background: var(--blood);
-  border: 2px solid var(--blood);
-  transition: background 0.2s ease, color 0.2s ease;
+  color: var(--btn-solid-text);
+  background: var(--neon-teal);
+  border: 2px solid var(--neon-teal);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .show-tickets:hover {
   background: transparent;
-  color: var(--blood-bright);
-  border-color: var(--blood-bright);
+  color: var(--neon-teal-bright);
+  border-color: var(--neon-teal-bright);
 }
 
 .show-tickets--soon {
   cursor: default;
   color: var(--paper-dim);
   background: transparent;
-  border-color: var(--border);
+  border-color: rgba(255, 77, 130, 0.35);
 }
 
 .show-tickets--soon:hover {
   background: transparent;
   color: var(--paper-dim);
-  border-color: var(--border);
+  border-color: rgba(255, 77, 130, 0.35);
 }
 
 .section--music {
@@ -824,15 +832,15 @@ a:hover {
 }
 
 .btn--solid {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--neon-pink);
+  border-color: var(--neon-pink);
   color: var(--btn-solid-text);
 }
 
 .btn--solid:hover {
-  background: var(--paper);
-  border-color: var(--paper);
-  color: var(--btn-solid-text);
+  background: transparent;
+  border-color: var(--neon-pink-bright);
+  color: var(--neon-pink-bright);
 }
 
 .section--contact {
@@ -969,11 +977,11 @@ a:hover {
     overflow: visible;
     text-shadow:
       0 0 1px rgba(255, 255, 255, 0.85),
-      0 0 5px var(--neon-pink),
-      0 0 10px rgba(255, 77, 130, 0.5);
+      0 0 5px var(--neon-teal),
+      0 0 10px rgba(0, 212, 184, 0.5);
   }
 
-  .show {
+  .section--shows .show {
     grid-template-columns: 4.25rem 1fr;
   }
 
@@ -995,54 +1003,54 @@ a:hover {
   }
 }
 
-@keyframes neon-flicker-pink {
+@keyframes neon-flicker-teal {
   0%,
   46%,
   48%,
   92%,
   94%,
   100% {
-    color: var(--neon-pink-bright);
-    text-shadow: var(--neon-glow-pink);
+    color: var(--neon-teal-bright);
+    text-shadow: var(--neon-glow-teal);
   }
 
   47%,
   93% {
-    color: rgba(255, 168, 200, 0.9);
+    color: rgba(122, 248, 232, 0.9);
     text-shadow:
       0 0 1px rgba(255, 255, 255, 0.65),
-      0 0 5px rgba(255, 77, 130, 0.45),
-      0 0 14px rgba(255, 77, 130, 0.32);
+      0 0 5px rgba(0, 212, 184, 0.45),
+      0 0 14px rgba(0, 212, 184, 0.32);
   }
 }
 
-@keyframes neon-flicker-pink-mobile {
+@keyframes neon-flicker-teal-mobile {
   0%,
   46%,
   48%,
   92%,
   94%,
   100% {
-    color: var(--neon-pink-bright);
+    color: var(--neon-teal-bright);
     text-shadow:
       0 0 1px rgba(255, 255, 255, 0.85),
-      0 0 5px var(--neon-pink),
-      0 0 10px rgba(255, 77, 130, 0.5);
+      0 0 5px var(--neon-teal),
+      0 0 10px rgba(0, 212, 184, 0.5);
   }
 
   47%,
   93% {
-    color: rgba(255, 168, 200, 0.9);
+    color: rgba(122, 248, 232, 0.9);
     text-shadow:
       0 0 1px rgba(255, 255, 255, 0.6),
-      0 0 4px rgba(255, 77, 130, 0.4),
-      0 0 9px rgba(255, 77, 130, 0.28);
+      0 0 4px rgba(0, 212, 184, 0.4),
+      0 0 9px rgba(0, 212, 184, 0.28);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .logo {
-    animation: neon-flicker-pink 12s infinite;
+    animation: neon-flicker-teal 12s infinite;
     animation-delay: -4s;
   }
 
@@ -1055,7 +1063,7 @@ a:hover {
 
 @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
   .logo {
-    animation-name: neon-flicker-pink-mobile;
+    animation-name: neon-flicker-teal-mobile;
     animation-duration: 12s;
     animation-delay: -4s;
   }
