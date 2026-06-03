@@ -12,12 +12,28 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 const BURGER_SETTLE_MS = 2400;
+const mobileMq = window.matchMedia('(max-width: 768px)');
+const reducedMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function playBurgerSettleAnimation() {
+  if (!menuBtn || menuBtn.getAttribute('aria-expanded') === 'true') return;
+  if (!mobileMq.matches || reducedMotionMq.matches) {
+    menuBtn.classList.remove('is-burger-settling');
+    return;
+  }
+
+  menuBtn.classList.remove('is-burger-settling');
+  void menuBtn.offsetWidth;
+  menuBtn.classList.add('is-burger-settling');
+  window.setTimeout(() => {
+    menuBtn.classList.remove('is-burger-settling');
+  }, BURGER_SETTLE_MS);
+}
 
 function setMobileNavOpen(open) {
   if (!menuBtn || !mobileNav || !header) return;
   menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   header.classList.toggle('is-menu-open', open);
-  menuBtn.classList.toggle('is-open', open);
 
   if (open) {
     menuBtn.classList.remove('is-burger-settling');
@@ -48,8 +64,6 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') setMobileNavOpen(false);
 });
 
-if (menuBtn && window.matchMedia('(max-width: 768px)').matches) {
-  window.setTimeout(() => {
-    menuBtn.classList.remove('is-burger-settling');
-  }, BURGER_SETTLE_MS);
+if (menuBtn) {
+  playBurgerSettleAnimation();
 }
