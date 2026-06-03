@@ -829,7 +829,8 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--paper-dim);
+  color: #ffb0bd;
+  text-shadow: none;
 }
 
 .music-release-lead--many {
