@@ -21,12 +21,12 @@
   --surface-overlay: rgba(5, 8, 16, 0.94);
   --surface-solid: rgba(5, 8, 16, 0.98);
   --accent-hover-bg: rgba(0, 212, 184, 0.12);
-  --show-hover-bg: rgba(255, 45, 106, 0.1);
+  --show-hover-bg: rgba(0, 212, 184, 0.1);
   --btn-solid-text: var(--black);
   --shadow-deep: rgba(0, 0, 0, 0.55);
   --logo-accent: #ff4d82;
+  --section-divider-width: 1px;
   --section-divider: rgba(240, 208, 146, 0.35);
-  --section-divider-subtle: rgba(240, 208, 146, 0.3);
   --neon-teal: #00d4b8;
   --neon-teal-bright: #7af8e8;
   --neon-pink: #ff4d82;
@@ -186,7 +186,7 @@ a:hover {
   min-height: var(--header-h);
   padding: 0 clamp(1rem, 4vw, 2.5rem);
   background: var(--black);
-  border-bottom: 1px solid transparent;
+  border-bottom: var(--section-divider-width) solid transparent;
   transition: background 0.25s ease, border-color 0.25s ease;
 }
 
@@ -198,7 +198,7 @@ a:hover {
 
 .site-header.is-scrolled {
   background: var(--surface-overlay);
-  border-bottom-color: var(--border);
+  border-bottom-color: var(--section-divider);
   backdrop-filter: blur(6px);
 }
 
@@ -488,7 +488,7 @@ a:hover {
   gap: 0;
   padding: 0.5rem 0 0.75rem;
   background: var(--surface-solid);
-  border-bottom: 1px solid var(--border);
+  border-bottom: var(--section-divider-width) solid var(--section-divider);
   pointer-events: auto;
 }
 
@@ -549,7 +549,7 @@ a:hover {
 .section-head {
   margin-bottom: 2.5rem;
   padding-bottom: 1.25rem;
-  border-bottom: 3px solid var(--orange);
+  border-bottom: var(--section-divider-width) solid var(--section-divider);
 }
 
 .section-label {
@@ -582,8 +582,8 @@ a:hover {
 .section--shows {
   background: var(--charcoal);
   max-width: none;
-  border-top: 1px solid var(--section-divider);
-  border-bottom: 1px solid var(--section-divider);
+  border-top: var(--section-divider-width) solid var(--section-divider);
+  border-bottom: var(--section-divider-width) solid var(--section-divider);
 }
 
 .section--shows .section-head {
@@ -600,7 +600,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 3px;
+  height: var(--section-divider-width);
   background: var(--neon-pink);
   box-shadow: var(--neon-line-glow-pink);
 }
@@ -618,11 +618,11 @@ a:hover {
   gap: 1.25rem 2rem;
   align-items: center;
   padding: 1.75rem 0;
-  border-bottom: 1px solid var(--section-divider-subtle);
+  border-bottom: var(--section-divider-width) solid var(--section-divider);
 }
 
 .section--shows .show:first-of-type {
-  border-top: 1px solid var(--section-divider-subtle);
+  border-top: var(--section-divider-width) solid var(--section-divider);
 }
 
 .show:hover {
@@ -773,7 +773,8 @@ a:hover {
 
 .section--music {
   background: var(--black);
-  border-bottom: 1px solid var(--section-divider);
+  max-width: none;
+  border-bottom: var(--section-divider-width) solid var(--section-divider);
   text-align: center;
 }
 
@@ -829,7 +830,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #ffb0bd;
+  color: var(--neon-pink-bright);
   text-shadow: none;
 }
 
@@ -906,8 +907,8 @@ a:hover {
 .section--contact {
   background: var(--charcoal);
   max-width: none;
-  border-top: 1px solid var(--section-divider);
-  border-bottom: none;
+  border-top: none;
+  border-bottom: var(--section-divider-width) solid var(--section-divider);
   padding-bottom: clamp(4rem, 10vw, 6rem);
   text-align: center;
 }
