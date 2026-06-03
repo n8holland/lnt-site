@@ -18,7 +18,7 @@ window.addEventListener('scroll', () => {
   header?.classList.toggle('is-scrolled', window.scrollY > 40);
 }, { passive: true });
 
-const BURGER_SETTLE_MS = 2400;
+const BURGER_SETTLE_MS = 1250;
 const compactMq = window.matchMedia(
   '(max-width: 768px), ((max-height: 520px) and (max-width: 920px))'
 );

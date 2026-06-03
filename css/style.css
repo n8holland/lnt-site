@@ -362,8 +362,8 @@ a:hover {
 }
 
 .nav-menu-btn.is-burger-settling:not([aria-expanded="true"]) .nav-menu-btn__line {
-  -webkit-animation: burger-plop-from-top 1.15s cubic-bezier(0.45, 0, 0.85, 0.65) backwards;
-  animation: burger-plop-from-top 1.15s cubic-bezier(0.45, 0, 0.85, 0.65) backwards;
+  -webkit-animation: burger-plop-from-top 0.65s cubic-bezier(0.45, 0, 0.85, 0.65) backwards;
+  animation: burger-plop-from-top 0.65s cubic-bezier(0.45, 0, 0.85, 0.65) backwards;
 }
 
 .nav-menu-btn.is-burger-settling:not([aria-expanded="true"]) .nav-menu-btn__line--bun-bottom {
@@ -372,23 +372,23 @@ a:hover {
 }
 
 .nav-menu-btn.is-burger-settling:not([aria-expanded="true"]) .nav-menu-btn__line--patty {
-  -webkit-animation-delay: 0.22s;
-  animation-delay: 0.22s;
+  -webkit-animation-delay: 0.12s;
+  animation-delay: 0.12s;
 }
 
 .nav-menu-btn.is-burger-settling:not([aria-expanded="true"]) .nav-menu-btn__line--lettuce {
-  -webkit-animation-delay: 0.44s;
-  animation-delay: 0.44s;
+  -webkit-animation-delay: 0.24s;
+  animation-delay: 0.24s;
 }
 
 .nav-menu-btn.is-burger-settling:not([aria-expanded="true"]) .nav-menu-btn__line--tomato {
-  -webkit-animation-delay: 0.66s;
-  animation-delay: 0.66s;
+  -webkit-animation-delay: 0.36s;
+  animation-delay: 0.36s;
 }
 
 .nav-menu-btn.is-burger-settling:not([aria-expanded="true"]) .nav-menu-btn__line--bun-top {
-  -webkit-animation-delay: 0.88s;
-  animation-delay: 0.88s;
+  -webkit-animation-delay: 0.48s;
+  animation-delay: 0.48s;
 }
 
 .nav-menu-btn__line--bun-top,
