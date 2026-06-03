@@ -24,6 +24,7 @@
   --show-hover-bg: rgba(163, 31, 31, 0.06);
   --btn-solid-text: #060606;
   --shadow-deep: rgba(0, 0, 0, 0.5);
+  --logo-accent: #e85a1a;
   --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: "Roboto Condensed", system-ui, sans-serif;
   --header-h: 5rem;
@@ -46,6 +47,7 @@
   --show-hover-bg: rgba(255, 45, 106, 0.1);
   --btn-solid-text: #050810;
   --shadow-deep: rgba(0, 0, 0, 0.55);
+  --logo-accent: #00d4b8;
 }
 
 [data-theme="brass"] {
@@ -65,6 +67,7 @@
   --show-hover-bg: rgba(122, 59, 31, 0.1);
   --btn-solid-text: #14100c;
   --shadow-deep: rgba(0, 0, 0, 0.45);
+  --logo-accent: #d4a84b;
 }
 
 html {
@@ -854,11 +857,22 @@ a:hover {
   border-top: none;
 }
 
-.lnt-bottom img {
+.lnt-bottom__mark {
   display: block;
   width: 100%;
-  height: auto;
-  vertical-align: bottom;
+  aspect-ratio: 975 / 200;
+  background-color: var(--logo-accent);
+  transition: background-color 0.35s ease;
+  -webkit-mask-image: url("../images/lntbackground.avif");
+  mask-image: url("../images/lntbackground.avif");
+  -webkit-mask-size: 100% auto;
+  mask-size: 100% auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center bottom;
+  mask-position: center bottom;
+  -webkit-mask-mode: luminance;
+  mask-mode: luminance;
 }
 
 .site-footer {
