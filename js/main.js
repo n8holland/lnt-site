@@ -18,8 +18,8 @@ window.addEventListener('scroll', () => {
   header?.classList.toggle('is-scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// Last line delay (720ms) + plop duration (950ms) + small buffer
-const BURGER_SETTLE_MS = 1900;
+// Last line delay (600ms) + plop duration (800ms) + small buffer
+const BURGER_SETTLE_MS = 1550;
 const compactMq = window.matchMedia(
   '(max-width: 768px), ((max-height: 520px) and (max-width: 920px))'
 );
