@@ -960,9 +960,9 @@ a:hover {
   .logo {
     grid-column: 2;
     justify-self: center;
-    font-size: clamp(1.15rem, 5.5vw, 1.75rem);
-    letter-spacing: 0.06em;
-    max-width: calc(100vw - 6.5rem);
+    font-size: clamp(1.4rem, 6.8vw, 2.05rem);
+    letter-spacing: 0.05em;
+    max-width: calc(100vw - 5.75rem);
     overflow: visible;
     text-shadow:
       0 0 1px rgba(255, 255, 255, 0.85),
@@ -986,7 +986,8 @@ a:hover {
 
 @media (max-width: 380px) {
   .logo {
-    font-size: clamp(1.35rem, 6.5vw, 1.85rem);
+    font-size: clamp(1.5rem, 7.5vw, 2.15rem);
+    letter-spacing: 0.04em;
   }
 }
 
