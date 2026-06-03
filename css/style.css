@@ -8,8 +8,11 @@
   --black: #050810;
   --charcoal: #0b1020;
   --slate: #141c32;
-  --paper: #e6f2f5;
-  --paper-dim: #6d8a9a;
+  --burger-bun: #f0d092;
+  --burger-bun-bright: #f8e8b8;
+  --burger-patty: #6b4f58;
+  --paper: var(--burger-bun);
+  --paper-dim: #c4a06a;
   --rust: #ff2d6a;
   --blood: #e8195a;
   --blood-bright: #ff4d82;
@@ -19,9 +22,11 @@
   --surface-solid: rgba(5, 8, 16, 0.98);
   --accent-hover-bg: rgba(0, 212, 184, 0.12);
   --show-hover-bg: rgba(255, 45, 106, 0.1);
-  --btn-solid-text: #050810;
+  --btn-solid-text: var(--black);
   --shadow-deep: rgba(0, 0, 0, 0.55);
   --logo-accent: #ff4d82;
+  --section-divider: rgba(240, 208, 146, 0.35);
+  --section-divider-subtle: rgba(240, 208, 146, 0.3);
   --neon-teal: #00d4b8;
   --neon-teal-bright: #7af8e8;
   --neon-pink: #ff4d82;
@@ -54,22 +59,15 @@
     0 0 6px var(--neon-pink),
     0 0 14px var(--neon-pink),
     0 0 24px rgba(255, 77, 130, 0.4);
-  --neon-btn-glow-teal:
-    0 0 6px rgba(0, 212, 184, 0.5),
-    0 0 16px rgba(0, 212, 184, 0.35);
-  --neon-btn-glow-teal-hover:
+  --neon-btn-glow-bun:
+    0 0 6px rgba(240, 208, 146, 0.55),
+    0 0 16px rgba(240, 208, 146, 0.38);
+  --neon-btn-glow-bun-hover:
     0 0 2px rgba(255, 255, 255, 0.55),
-    0 0 8px var(--neon-teal-bright),
-    0 0 20px rgba(0, 212, 184, 0.55);
-  --neon-btn-glow-pink:
-    0 0 6px rgba(255, 77, 130, 0.55),
-    0 0 16px rgba(255, 77, 130, 0.38);
-  --neon-btn-glow-pink-hover:
-    0 0 2px rgba(255, 255, 255, 0.55),
-    0 0 8px var(--neon-pink-bright),
-    0 0 20px rgba(255, 77, 130, 0.55);
-  --neon-btn-glow-pink-soft:
-    0 0 8px rgba(255, 77, 130, 0.3);
+    0 0 8px var(--burger-bun-bright),
+    0 0 20px rgba(240, 208, 146, 0.5);
+  --neon-btn-glow-bun-soft:
+    0 0 8px rgba(240, 208, 146, 0.28);
   --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: "Roboto Condensed", system-ui, sans-serif;
   --header-h: 5rem;
@@ -284,10 +282,8 @@ a:hover {
 }
 
 .nav-menu-btn {
-  --burger-bun: #f0d092;
   --burger-tomato: #ff4d82;
   --burger-lettuce: #2ce8b8;
-  --burger-patty: #6b4f58;
   --french-fry: #7af8e8;
   --french-fry-hot: #00d4b8;
   position: relative;
@@ -586,8 +582,8 @@ a:hover {
 .section--shows {
   background: var(--charcoal);
   max-width: none;
-  border-top: 1px solid rgba(0, 212, 184, 0.35);
-  border-bottom: 1px solid rgba(0, 212, 184, 0.35);
+  border-top: 1px solid var(--section-divider);
+  border-bottom: 1px solid var(--section-divider);
 }
 
 .section--shows .section-head {
@@ -622,11 +618,11 @@ a:hover {
   gap: 1.25rem 2rem;
   align-items: center;
   padding: 1.75rem 0;
-  border-bottom: 1px solid rgba(0, 212, 184, 0.3);
+  border-bottom: 1px solid var(--section-divider-subtle);
 }
 
 .section--shows .show:first-of-type {
-  border-top: 1px solid rgba(0, 212, 184, 0.3);
+  border-top: 1px solid var(--section-divider-subtle);
 }
 
 .show:hover {
@@ -718,23 +714,20 @@ a:hover {
   color: var(--paper-dim);
 }
 
-.show-tickets {
+.show-tickets,
+.btn.btn--solid {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  min-width: 11.5rem;
   white-space: nowrap;
   font-family: var(--font-display);
-  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0.7rem 1.15rem;
   color: var(--btn-solid-text);
-  background: var(--neon-teal);
-  border: 2px solid var(--neon-teal);
-  box-shadow: var(--neon-btn-glow-teal);
+  background: var(--burger-bun);
+  border: 2px solid var(--burger-bun);
+  box-shadow: var(--neon-btn-glow-bun);
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -742,31 +735,45 @@ a:hover {
     box-shadow 0.2s ease;
 }
 
-.show-tickets:hover {
+.show-tickets {
+  min-width: 11.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  padding: 0.7rem 1.15rem;
+}
+
+.btn.btn--solid {
+  font-size: 0.8125rem;
+  letter-spacing: 0.22em;
+  padding: 1rem 1.75rem;
+}
+
+.show-tickets:hover,
+.btn.btn--solid:hover {
   background: transparent;
-  color: var(--neon-teal-bright);
-  border-color: var(--neon-teal-bright);
-  box-shadow: var(--neon-btn-glow-teal-hover);
+  color: var(--burger-bun-bright);
+  border-color: var(--burger-bun-bright);
+  box-shadow: var(--neon-btn-glow-bun-hover);
 }
 
 .show-tickets--soon {
   cursor: default;
   color: var(--paper-dim);
   background: transparent;
-  border-color: rgba(255, 77, 130, 0.35);
-  box-shadow: var(--neon-btn-glow-pink-soft);
+  border-color: var(--section-divider);
+  box-shadow: var(--neon-btn-glow-bun-soft);
 }
 
 .show-tickets--soon:hover {
   background: transparent;
   color: var(--paper-dim);
-  border-color: rgba(255, 77, 130, 0.35);
-  box-shadow: var(--neon-btn-glow-pink-soft);
+  border-color: var(--section-divider);
+  box-shadow: var(--neon-btn-glow-bun-soft);
 }
 
 .section--music {
   background: var(--black);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--section-divider);
   text-align: center;
 }
 
@@ -868,29 +875,15 @@ a:hover {
     box-shadow 0.2s ease;
 }
 
-.btn:hover {
+.btn:not(.btn--solid):hover {
   border-color: var(--paper);
   color: var(--paper);
-}
-
-.btn--solid {
-  background: var(--neon-pink);
-  border-color: var(--neon-pink);
-  color: var(--btn-solid-text);
-  box-shadow: var(--neon-btn-glow-pink);
-}
-
-.btn--solid:hover {
-  background: transparent;
-  border-color: var(--neon-pink-bright);
-  color: var(--neon-pink-bright);
-  box-shadow: var(--neon-btn-glow-pink-hover);
 }
 
 .section--contact {
   background: var(--charcoal);
   max-width: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--section-divider);
   border-bottom: none;
   padding-bottom: clamp(4rem, 10vw, 6rem);
   text-align: center;
