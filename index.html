@@ -17,9 +17,31 @@
 
   <header class="site-header" id="top">
     <nav class="header-nav" aria-label="Main">
+      <button
+        type="button"
+        class="nav-menu-btn"
+        id="nav-menu-btn"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class="visually-hidden">Menu</span>
+        <span class="nav-menu-btn__stack" aria-hidden="true">
+          <span class="nav-menu-btn__line nav-menu-btn__line--bun-top"></span>
+          <span class="nav-menu-btn__line nav-menu-btn__line--tomato"></span>
+          <span class="nav-menu-btn__line nav-menu-btn__line--lettuce"></span>
+          <span class="nav-menu-btn__line nav-menu-btn__line--patty"></span>
+          <span class="nav-menu-btn__line nav-menu-btn__line--bun-bottom"></span>
+        </span>
+      </button>
       <a href="#shows" class="nav-link">Shows</a>
       <a href="#top" class="logo">Late Nite Takeout</a>
       <a href="#music" class="nav-link">Music</a>
+      <span class="header-nav-spacer" aria-hidden="true"></span>
+    </nav>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+      <a href="#shows" class="mobile-nav__link">Shows</a>
+      <a href="#music" class="mobile-nav__link">Music</a>
+      <a href="#contact" class="mobile-nav__link">Contact</a>
     </nav>
   </header>
 
@@ -140,6 +162,6 @@
     <p class="footer-copy">&copy; <span id="year"></span> Late Nite Takeout</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2" defer></script>
 </body>
 </html>
