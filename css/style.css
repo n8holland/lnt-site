@@ -1076,55 +1076,44 @@ a:hover {
   }
 }
 
-@keyframes neon-glow-teal {
-  0%,
-  100% {
-    color: var(--neon-teal-bright);
-    text-shadow: var(--neon-glow-teal);
-  }
-
-  50% {
-    color: rgba(122, 248, 232, 0.92);
-    text-shadow: var(--neon-glow-teal-intense);
-  }
-}
-
-@keyframes neon-glow-teal-mobile {
-  0%,
-  100% {
-    color: var(--neon-teal-bright);
-    text-shadow:
-      0 0 1px rgba(255, 255, 255, 0.85),
-      0 0 5px var(--neon-teal),
-      0 0 10px rgba(0, 212, 184, 0.5);
-  }
-
-  50% {
-    color: rgba(122, 248, 232, 0.92);
-    text-shadow:
-      0 0 2px rgba(255, 255, 255, 0.9),
-      0 0 8px var(--neon-teal-bright),
-      0 0 18px rgba(0, 212, 184, 0.55);
-  }
+.logo-letter {
+  transition: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .logo {
-    animation: neon-glow-teal 5s ease-in-out infinite;
+  .logo-letter.is-neon-dead {
+    color: rgba(122, 248, 232, 0.05);
+    text-shadow: none;
+  }
+
+  .logo-letter.is-neon-weak {
+    color: rgba(122, 248, 232, 0.3);
+    text-shadow: 0 0 4px rgba(0, 212, 184, 0.22);
+  }
+
+  .logo-letter.is-neon-flash {
+    color: var(--neon-teal-bright);
+    text-shadow: var(--neon-glow-teal-intense);
   }
 
   .logo:hover,
   .logo:focus-visible {
-    animation: none;
     transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+  .logo:hover .logo-letter,
+  .logo:focus-visible .logo-letter {
+    color: inherit;
+    text-shadow: inherit;
   }
 }
 
 @media (max-width: 768px), ((max-height: 520px) and (max-width: 920px)) and (prefers-reduced-motion: no-preference) {
-  .logo {
-    animation-name: neon-glow-teal-mobile;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
+  .logo-letter.is-neon-flash {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 10px var(--neon-teal),
+      0 0 22px rgba(0, 212, 184, 0.65);
   }
 }
 
@@ -1133,8 +1122,11 @@ a:hover {
     scroll-behavior: auto;
   }
 
-  .logo {
-    animation: none !important;
+  .logo-letter.is-neon-dead,
+  .logo-letter.is-neon-weak,
+  .logo-letter.is-neon-flash {
+    color: inherit;
+    text-shadow: inherit;
   }
 
   .nav-menu-btn__line,
