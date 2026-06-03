@@ -9,7 +9,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=7">
+  <!-- TEMP: theme preview — remove this script and footer .theme-preview-panel when finalized -->
+  <script>
+    (function () {
+      if (location.search.indexOf('preview-themes') === -1) return;
+      document.documentElement.setAttribute('data-theme-preview', '');
+      var themes = ['grunge', 'neon', 'brass'];
+      var params = new URLSearchParams(location.search);
+      var fromUrl = params.get('theme');
+      var saved = localStorage.getItem('lnt-theme');
+      var pick = themes.indexOf(fromUrl) !== -1 ? fromUrl : saved;
+      if (pick && themes.indexOf(pick) !== -1 && pick !== 'grunge') {
+        document.documentElement.setAttribute('data-theme', pick);
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -159,9 +174,37 @@
   </section>
 
   <footer class="site-footer">
+    <!-- TEMP: delete .theme-preview-panel (and related CSS/JS) once the team picks a palette -->
+    <div class="theme-preview-panel" id="theme-preview-panel">
+      <p class="theme-preview-note">
+        <strong>Team preview</strong> — not shown on the public site.
+        Open with <code>?preview-themes</code> on the URL.
+        Share a look: <code>?preview-themes&amp;theme=neon</code> or <code>brass</code>.
+      </p>
+      <div class="theme-switcher" role="radiogroup" aria-labelledby="theme-switcher-label">
+        <span class="theme-switcher__label" id="theme-switcher-label">Pick a palette</span>
+        <div class="theme-switcher__options">
+          <label class="theme-option">
+            <input type="radio" name="theme" value="grunge" checked>
+            <span class="theme-option__swatch theme-option__swatch--grunge" aria-hidden="true"></span>
+            <span class="theme-option__name">Grunge</span>
+          </label>
+          <label class="theme-option">
+            <input type="radio" name="theme" value="neon">
+            <span class="theme-option__swatch theme-option__swatch--neon" aria-hidden="true"></span>
+            <span class="theme-option__name">Neon Diner</span>
+          </label>
+          <label class="theme-option">
+            <input type="radio" name="theme" value="brass">
+            <span class="theme-option__swatch theme-option__swatch--brass" aria-hidden="true"></span>
+            <span class="theme-option__name">Smoke &amp; Brass</span>
+          </label>
+        </div>
+      </div>
+    </div>
     <p class="footer-copy">&copy; <span id="year"></span> Late Nite Takeout</p>
   </footer>
 
-  <script src="js/main.js?v=5"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>
