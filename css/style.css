@@ -816,6 +816,20 @@ a:hover {
   display: none;
 }
 
+.music-release-lead {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.music-release-lead--many {
+  display: none;
+}
+
 @media (min-width: 769px) and (min-height: 521px) {
   .music-release {
     max-width: calc(20rem * 3 + 1.25rem * 2);
@@ -842,6 +856,14 @@ a:hover {
   }
 
   .music-art-link--desktop {
+    display: block;
+  }
+
+  .music-release-lead--one {
+    display: none;
+  }
+
+  .music-release-lead--many {
     display: block;
   }
 }
