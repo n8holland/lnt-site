@@ -76,11 +76,50 @@
 }
 
 html {
+  position: relative;
   scroll-behavior: smooth;
+  min-height: 100%;
   background-color: var(--black);
+  color-scheme: dark;
+}
+
+/* Scrolls with the document so pull-to-refresh / overscroll shows the logo, not grey chrome */
+html::before,
+html::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 975 / 200;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  background-color: var(--logo-accent);
+  -webkit-mask-image: url("../images/lntbackground.avif");
+  mask-image: url("../images/lntbackground.avif");
+  -webkit-mask-size: 100% auto;
+  mask-size: 100% auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-mode: luminance;
+  mask-mode: luminance;
+}
+
+html::before {
+  top: 0;
+  -webkit-mask-position: center top;
+  mask-position: center top;
+}
+
+html::after {
+  bottom: 0;
+  -webkit-mask-position: center bottom;
+  mask-position: center bottom;
 }
 
 body {
+  position: relative;
+  z-index: 1;
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -94,17 +133,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body > :not(.lnt-page-bg):not(.noise):not(.scanlines):not(.site-header) {
+body > :not(.noise):not(.scanlines):not(.site-header) {
   position: relative;
   z-index: 1;
-}
-
-.lnt-page-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
 }
 
 .lnt-banner-mark {
@@ -121,22 +152,6 @@ body > :not(.lnt-page-bg):not(.noise):not(.scanlines):not(.site-header) {
   mask-repeat: no-repeat;
   -webkit-mask-mode: luminance;
   mask-mode: luminance;
-}
-
-.lnt-page-bg__mark {
-  opacity: 0.55;
-}
-
-.lnt-page-bg__mark--top {
-  top: 0;
-  -webkit-mask-position: center top;
-  mask-position: center top;
-}
-
-.lnt-page-bg__mark--bottom {
-  bottom: 0;
-  -webkit-mask-position: center bottom;
-  mask-position: center bottom;
 }
 
 main {
@@ -1056,6 +1071,42 @@ a:hover {
 
   .hero-frame {
     aspect-ratio: 4 / 3;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero-frame {
+    aspect-ratio: 16 / 9;
+    max-height: min(40dvh, 10.5rem);
+    height: auto;
+  }
+
+  .section--contact {
+    padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .lnt-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    overflow: visible;
+  }
+
+  .lnt-bottom .lnt-banner-mark {
+    --lnt-banner-h: clamp(2.25rem, 18dvh, 3.75rem);
+    position: relative;
+    left: auto;
+    width: min(88vw, calc(var(--lnt-banner-h) * 975 / 200));
+    height: var(--lnt-banner-h);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .site-footer {
+    padding-top: 0.5rem;
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
