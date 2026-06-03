@@ -126,7 +126,7 @@ a:hover {
 }
 
 .nav-link {
-  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
   justify-self: start;
 }
 
@@ -534,8 +534,8 @@ a:hover {
 
 .contact-instagram-icon {
   display: block;
-  width: 1.45em;
-  height: 1.45em;
+  width: 1.85em;
+  height: 1.85em;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(48%) sepia(90%) saturate(1800%) hue-rotate(346deg) brightness(98%) contrast(92%);
   transition: filter 0.2s ease;
@@ -586,27 +586,17 @@ a:hover {
   }
 
   .header-nav {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    gap: 0.35rem;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-link {
-    font-size: clamp(0.6rem, 2.6vw, 0.8rem);
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-  }
-
-  .header-nav .nav-link:first-of-type {
-    text-align: left;
-  }
-
-  .header-nav .nav-link:last-of-type {
-    text-align: right;
+    display: none;
   }
 
   .logo {
-    font-size: clamp(1.15rem, 5.5vw, 1.6rem);
-    letter-spacing: 0.05em;
+    font-size: clamp(1.5rem, 7vw, 2.15rem);
+    letter-spacing: 0.06em;
     padding: 0;
   }
 
@@ -626,11 +616,7 @@ a:hover {
 
 @media (max-width: 380px) {
   .logo {
-    font-size: clamp(0.9rem, 4.8vw, 1.1rem);
-  }
-
-  .nav-link {
-    font-size: 0.55rem;
+    font-size: clamp(1.35rem, 6.5vw, 1.85rem);
   }
 }
 
