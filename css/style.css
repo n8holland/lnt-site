@@ -133,7 +133,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body > :not(.noise):not(.scanlines):not(.site-header) {
+body > :not(.lnt-overscroll):not(.noise):not(.scanlines):not(.site-header) {
   position: relative;
   z-index: 1;
 }
@@ -154,13 +154,35 @@ body > :not(.noise):not(.scanlines):not(.site-header) {
   mask-mode: luminance;
 }
 
+/* Sits above the fold; visible when rubber-banding at scroll top */
+.lnt-overscroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vw * 200 / 975);
+  transform: translateY(-100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lnt-overscroll__mark {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0.55;
+  -webkit-mask-position: center bottom;
+  mask-position: center bottom;
+}
+
 main {
   flex: 1 0 auto;
   background: var(--black);
 }
 
+/* Absolute (not fixed) so pull-to-refresh overscroll reveals html logo, not this grain layer */
 .noise {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 9998;
   pointer-events: none;
@@ -170,7 +192,7 @@ main {
 }
 
 .scanlines {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 9997;
   pointer-events: none;
