@@ -13,20 +13,12 @@ window.addEventListener('scroll', () => {
 
 const BURGER_SETTLE_MS = 2400;
 
-function playBurgerSettleAnimation() {
-  if (!menuBtn || menuBtn.getAttribute('aria-expanded') === 'true') return;
-  menuBtn.classList.remove('is-burger-settling');
-  void menuBtn.offsetWidth;
-  menuBtn.classList.add('is-burger-settling');
-  window.setTimeout(() => {
-    menuBtn.classList.remove('is-burger-settling');
-  }, BURGER_SETTLE_MS);
-}
-
 function setMobileNavOpen(open) {
   if (!menuBtn || !mobileNav || !header) return;
   menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   header.classList.toggle('is-menu-open', open);
+  menuBtn.classList.toggle('is-open', open);
+
   if (open) {
     menuBtn.classList.remove('is-burger-settling');
     mobileNav.removeAttribute('hidden');
@@ -44,7 +36,6 @@ function toggleMobileNav() {
 if (menuBtn && mobileNav) {
   menuBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    event.stopPropagation();
     toggleMobileNav();
   });
 
@@ -58,5 +49,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 if (menuBtn && window.matchMedia('(max-width: 768px)').matches) {
-  playBurgerSettleAnimation();
+  window.setTimeout(() => {
+    menuBtn.classList.remove('is-burger-settling');
+  }, BURGER_SETTLE_MS);
 }
