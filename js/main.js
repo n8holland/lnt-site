@@ -8,6 +8,7 @@ const header = document.querySelector('.site-header');
 const yearEl = document.getElementById('year');
 const menuBtn = document.getElementById('nav-menu-btn');
 const mobileNav = document.getElementById('mobile-nav');
+const logoLink = document.querySelector('.logo');
 
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
@@ -72,4 +73,16 @@ document.addEventListener('keydown', (event) => {
 
 if (menuBtn) {
   playBurgerSettleAnimation();
+}
+
+if (logoLink) {
+  logoLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    setMobileNavOpen(false);
+    window.scrollTo({
+      top: 0,
+      behavior: reducedMotionMq.matches ? 'auto' : 'smooth',
+    });
+    history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+  });
 }
