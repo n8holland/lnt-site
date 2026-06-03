@@ -76,17 +76,9 @@
 }
 
 html {
-  position: relative;
   scroll-behavior: smooth;
   min-height: 100%;
   background-color: var(--black);
-  /* Root background paints in mobile overscroll (pseudo-elements sit under opaque body) */
-  background-image:
-    url("../images/lnt-logo-overscroll.png"),
-    url("../images/lnt-logo-overscroll.png");
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% auto, 100% auto;
-  background-position: center top, center bottom;
   color-scheme: dark;
 }
 
@@ -132,7 +124,6 @@ main {
   background: var(--black);
 }
 
-/* Absolute (not fixed) so pull-to-refresh overscroll reveals html logo, not this grain layer */
 .noise {
   position: absolute;
   inset: 0;
