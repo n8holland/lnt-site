@@ -739,6 +739,12 @@ a:hover {
 }
 
 .show-tickets {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 11.5rem;
+  white-space: nowrap;
   font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 700;
@@ -829,7 +835,7 @@ a:hover {
   display: none;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 769px) and (min-height: 521px) {
   .music-release {
     max-width: calc(20rem * 3 + 1.25rem * 2);
   }
@@ -997,7 +1003,7 @@ a:hover {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), ((max-height: 520px) and (max-width: 920px)) {
   .site-header {
     padding: 0.75rem clamp(0.5rem, 3vw, 1rem);
     overflow: visible;
@@ -1119,7 +1125,7 @@ a:hover {
   }
 }
 
-@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+@media (max-width: 768px), ((max-height: 520px) and (max-width: 920px)) and (prefers-reduced-motion: no-preference) {
   .logo {
     animation-name: neon-flicker-teal-mobile;
     animation-duration: 12s;

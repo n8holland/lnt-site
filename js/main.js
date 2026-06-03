@@ -19,12 +19,14 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 const BURGER_SETTLE_MS = 2400;
-const mobileMq = window.matchMedia('(max-width: 768px)');
+const compactMq = window.matchMedia(
+  '(max-width: 768px), ((max-height: 520px) and (max-width: 920px))'
+);
 const reducedMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function playBurgerSettleAnimation() {
   if (!menuBtn || menuBtn.getAttribute('aria-expanded') === 'true') return;
-  if (!mobileMq.matches || reducedMotionMq.matches) {
+  if (!compactMq.matches || reducedMotionMq.matches) {
     menuBtn.classList.remove('is-burger-settling');
     return;
   }
