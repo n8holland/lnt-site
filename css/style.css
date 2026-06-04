@@ -21,7 +21,6 @@
   --surface-overlay: rgba(5, 8, 16, 0.94);
   --surface-solid: rgba(5, 8, 16, 0.98);
   --accent-hover-bg: rgba(113, 209, 192, 0.12);
-  --show-hover-bg: rgba(113, 209, 192, 0.1);
   --btn-solid-text: var(--black);
   --shadow-deep: rgba(0, 0, 0, 0.55);
   --logo-accent: #e46b6a;
@@ -622,14 +621,6 @@ a:hover {
   border-top: var(--section-divider-width) solid var(--section-divider);
 }
 
-.show:hover {
-  background: var(--show-hover-bg);
-}
-
-.show:hover .show-venue {
-  color: var(--paper);
-}
-
 .section--shows .show-date {
   display: flex;
   flex-direction: column;
@@ -694,7 +685,6 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  transition: color 0.2s ease;
 }
 
 .show-city {
@@ -934,7 +924,7 @@ a:hover {
 }
 
 .contact-email:hover {
-  color: var(--paper);
+  color: var(--neon-teal);
 }
 
 .contact-instagram {
@@ -950,7 +940,7 @@ a:hover {
 }
 
 .contact-instagram:hover {
-  color: var(--paper);
+  color: var(--neon-teal);
 }
 
 .contact-instagram-icon {
@@ -971,7 +961,7 @@ a:hover {
 }
 
 .contact-instagram:hover .contact-instagram-icon {
-  background-color: var(--paper);
+  background-color: var(--neon-teal);
 }
 
 .lnt-bottom {
