@@ -597,6 +597,7 @@ a:hover {
   right: 0;
   bottom: 0;
   height: 4px;
+  border-radius: 2px;
   background: var(--neon-pink-bright);
   box-shadow: var(--neon-glow-pink);
 }
@@ -640,6 +641,7 @@ a:hover {
   top: 0;
   bottom: 0;
   width: 4px;
+  border-radius: 2px;
   background: var(--neon-pink-bright);
   box-shadow: var(--neon-glow-pink);
 }
