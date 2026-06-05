@@ -596,9 +596,9 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  height: var(--section-divider-width);
-  background: var(--neon-pink);
-  box-shadow: var(--neon-line-glow-pink);
+  height: 4px;
+  background: var(--neon-pink-bright);
+  box-shadow: var(--neon-glow-pink);
 }
 
 .shows-list {
@@ -640,8 +640,8 @@ a:hover {
   top: 0;
   bottom: 0;
   width: 4px;
-  background: var(--neon-pink);
-  box-shadow: var(--neon-line-glow-pink);
+  background: var(--neon-pink-bright);
+  box-shadow: var(--neon-glow-pink);
 }
 
 .show-month,
