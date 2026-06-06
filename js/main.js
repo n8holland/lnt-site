@@ -258,3 +258,61 @@ if (logoLink) {
     }
   });
 }
+
+const pressItems = document.querySelectorAll('.press-item');
+const pressSegments = document.querySelectorAll('.press-neon-segment');
+const PRESS_CYCLE_MS = 6000;
+let pressIndex = 0;
+let pressTimerId = null;
+
+function setActivePressQuote(index) {
+  if (!pressItems.length) return;
+
+  pressItems.forEach((item, i) => {
+    const isActive = i === index;
+    item.classList.toggle('is-active', isActive);
+    item.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+  });
+
+  pressSegments.forEach((segment, i) => {
+    segment.classList.toggle('is-active', i === index);
+  });
+}
+
+function cyclePressQuote() {
+  if (pressItems.length < 2) return;
+  pressIndex = (pressIndex + 1) % pressItems.length;
+  setActivePressQuote(pressIndex);
+}
+
+function startPressCycle() {
+  if (pressItems.length < 2 || reducedMotionMq.matches) return;
+  stopPressCycle();
+  pressTimerId = window.setInterval(cyclePressQuote, PRESS_CYCLE_MS);
+}
+
+function stopPressCycle() {
+  if (pressTimerId === null) return;
+  window.clearInterval(pressTimerId);
+  pressTimerId = null;
+}
+
+if (pressItems.length) {
+  setActivePressQuote(0);
+  startPressCycle();
+
+  reducedMotionMq.addEventListener('change', () => {
+    if (reducedMotionMq.matches) {
+      stopPressCycle();
+      pressItems.forEach((item) => {
+        item.classList.add('is-active');
+        item.setAttribute('aria-hidden', 'false');
+      });
+      pressSegments.forEach((segment) => segment.classList.remove('is-active'));
+    } else {
+      pressIndex = 0;
+      setActivePressQuote(0);
+      startPressCycle();
+    }
+  });
+}

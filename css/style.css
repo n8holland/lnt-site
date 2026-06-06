@@ -894,7 +894,7 @@ a:hover {
 }
 
 .section--contact {
-  background: var(--charcoal);
+  background: var(--black);
   max-width: none;
   border-top: none;
   border-bottom: var(--section-divider-width) solid var(--section-divider);
@@ -966,9 +966,127 @@ a:hover {
   background-color: var(--neon-teal);
 }
 
+.section--press {
+  background: var(--charcoal);
+  max-width: none;
+  border-top: none;
+  border-bottom: var(--section-divider-width) solid var(--section-divider);
+  text-align: center;
+}
+
+.section--press .section-title {
+  margin: 0 0 2.5rem;
+}
+
+.press-spotlight {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 2rem);
+}
+
+.press-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.press-item {
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 1.1s ease,
+    visibility 1.1s ease;
+}
+
+.press-item.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.press-quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.press-quote p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--paper);
+}
+
+.press-source {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2.4vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--neon-pink);
+}
+
+.press-source cite {
+  font-style: normal;
+}
+
+.press-neon-sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+.press-neon-segment {
+  width: 1.75rem;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(228, 107, 106, 0.22);
+  box-shadow: none;
+  transition:
+    width 0.45s ease,
+    background 0.45s ease,
+    box-shadow 0.45s ease,
+    opacity 0.45s ease;
+}
+
+.press-neon-segment.is-active {
+  width: 3rem;
+  background: var(--neon-pink-bright);
+  box-shadow: var(--neon-glow-pink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .press-item {
+    grid-row: auto;
+    grid-column: auto;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+
+  .press-neon-sign {
+    display: none;
+  }
+}
+
 .lnt-bottom {
   flex-shrink: 0;
-  background: var(--black);
+  background: var(--charcoal);
 }
 
 .lnt-bottom .lnt-banner-mark {
