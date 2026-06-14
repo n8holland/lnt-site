@@ -590,6 +590,14 @@ a:hover {
   border-bottom: none;
 }
 
+.shows-upcoming-block:not([hidden]) + .shows-past-block {
+  margin-top: clamp(3rem, 8vw, 4.5rem);
+}
+
+.section--shows .section-head--past {
+  margin-bottom: 0;
+}
+
 .section--shows .section-head::after {
   content: "";
   position: absolute;
@@ -620,6 +628,23 @@ a:hover {
 
 .section--shows .show:first-of-type {
   border-top: var(--section-divider-width) solid var(--section-divider);
+}
+
+.show--past {
+  grid-template-columns: 5rem 1fr;
+}
+
+.show--past .show-date::before {
+  background: rgba(228, 107, 106, 0.45);
+  box-shadow: none;
+}
+
+.show--past .show-day {
+  color: var(--paper-dim);
+}
+
+.show--past .show-venue {
+  color: var(--paper-dim);
 }
 
 .section--shows .show-date {

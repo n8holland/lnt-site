@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=113">
+  <link rel="stylesheet" href="css/style.css?v=115">
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -77,11 +77,12 @@
 
   <main>
     <section class="section section--shows" id="shows">
-      <header class="section-head">
-        <h2 class="section-title">Upcoming Shows</h2>
-      </header>
+      <div class="shows-upcoming-block" id="shows-upcoming-block">
+        <header class="section-head">
+          <h2 class="section-title">Upcoming Shows</h2>
+        </header>
 
-      <ul class="shows-list">
+        <ul class="shows-list" id="shows-upcoming-list">
         <li class="show">
           <time class="show-date" datetime="2026-06-13">
             <span class="show-month">Jun</span>
@@ -109,7 +110,7 @@
           <a class="show-tickets" href="https://goosetowntavern.com/event/arthur-s-and-the-effects-w-mimi-james-and-the-dustlighters-late-nite-takeout/goosetown-tavern/" target="_blank" rel="noopener noreferrer">Tickets</a>
         </li>
         <li class="show">
-          <time class="show-date" datetime="2026-08-27">
+          <time class="show-date" datetime="2026-08-27" data-end="2026-08-30">
             <span class="show-month">Aug</span>
             <span class="show-day show-day--range">27–30</span>
             <span class="show-year">2026</span>
@@ -121,7 +122,16 @@
           </div>
           <a class="show-tickets" href="https://www.boulderrootsmusicfest.org/tickets" target="_blank" rel="noopener noreferrer">Tickets</a>
         </li>
-      </ul>
+        </ul>
+      </div>
+
+      <div class="shows-past-block" id="shows-past-block" hidden>
+        <header class="section-head section-head--past">
+          <h2 class="section-title">Past Shows</h2>
+        </header>
+
+        <ul class="shows-list shows-list--past" id="shows-past-list"></ul>
+      </div>
     </section>
 
     <section class="section section--music" id="music">
@@ -213,6 +223,6 @@
     <p class="footer-copy">&copy; <span id="year"></span> Late Nite Takeout</p>
   </footer>
 
-  <script src="js/main.js?v=35"></script>
+  <script src="js/main.js?v=37"></script>
 </body>
 </html>

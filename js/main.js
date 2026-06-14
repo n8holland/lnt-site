@@ -14,6 +14,66 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
+const upcomingShowsList = document.getElementById('shows-upcoming-list');
+const pastShowsList = document.getElementById('shows-past-list');
+const upcomingShowsBlock = document.getElementById('shows-upcoming-block');
+const pastShowsBlock = document.getElementById('shows-past-block');
+
+function startOfLocalDay(date) {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+function parseShowDate(value) {
+  if (!value) return null;
+  const [year, month, day] = value.split('-').map(Number);
+  if (!year || !month || !day) return null;
+  return startOfLocalDay(new Date(year, month - 1, day));
+}
+
+function getShowEndDate(showEl) {
+  const timeEl = showEl.querySelector('.show-date');
+  if (!timeEl) return null;
+  const endValue = timeEl.dataset.end || timeEl.getAttribute('datetime');
+  return parseShowDate(endValue);
+}
+
+function isShowPast(showEl) {
+  const endDate = getShowEndDate(showEl);
+  if (!endDate) return false;
+  return endDate < startOfLocalDay(new Date());
+}
+
+function markShowPast(showEl) {
+  showEl.classList.add('show--past');
+  showEl.querySelector('.show-tickets')?.remove();
+}
+
+function partitionShows() {
+  if (!upcomingShowsList || !pastShowsList) return;
+
+  const shows = [...upcomingShowsList.querySelectorAll('.show')];
+  const pastShows = shows.filter(isShowPast).sort((a, b) => {
+    const aDate = getShowEndDate(a)?.getTime() ?? 0;
+    const bDate = getShowEndDate(b)?.getTime() ?? 0;
+    return bDate - aDate;
+  });
+
+  pastShows.forEach((showEl) => {
+    markShowPast(showEl);
+    pastShowsList.appendChild(showEl);
+  });
+
+  if (pastShowsBlock) {
+    pastShowsBlock.hidden = pastShows.length === 0;
+  }
+
+  if (upcomingShowsBlock) {
+    upcomingShowsBlock.hidden = upcomingShowsList.children.length === 0;
+  }
+}
+
+partitionShows();
+
 window.addEventListener('scroll', () => {
   header?.classList.toggle('is-scrolled', window.scrollY > 40);
 }, { passive: true });
