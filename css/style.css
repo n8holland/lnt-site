@@ -522,7 +522,7 @@ a:hover {
   position: relative;
   max-width: 64rem;
   margin: 0 auto;
-  aspect-ratio: 1180 / 786;
+  aspect-ratio: 1536 / 965;
   overflow: hidden;
   background: var(--charcoal);
 }
@@ -1168,13 +1168,13 @@ a:hover {
   }
 
   .hero-frame {
-    aspect-ratio: 1180 / 786;
+    aspect-ratio: 1536 / 965;
   }
 }
 
 @media (orientation: landscape) and (max-height: 520px) {
   .hero-frame {
-    aspect-ratio: 1180 / 786;
+    aspect-ratio: 1536 / 965;
     max-height: min(40dvh, 10.5rem);
     height: auto;
   }
