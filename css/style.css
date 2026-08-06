@@ -520,7 +520,7 @@ a:hover {
 
 .hero-frame {
   position: relative;
-  max-width: 64rem;
+  max-width: 48rem;
   margin: 0 auto;
   background: var(--charcoal);
 }
