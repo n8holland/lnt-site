@@ -1114,8 +1114,8 @@ a:hover {
   position: relative;
   opacity: 1;
   background-color: var(--neon-teal);
-  -webkit-mask-position: center bottom;
-  mask-position: center bottom;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 
 .site-footer {
