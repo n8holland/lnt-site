@@ -1005,47 +1005,57 @@ a:hover {
   padding: 0 clamp(1.25rem, 5vw, 2rem);
 }
 
-.press-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
+.press-article {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
-.press-item {
-  grid-row: 1;
-  grid-column: 1;
+.press-article-figure {
+  position: relative;
   margin: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 1.1s ease,
-    visibility 1.1s ease;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.press-item.is-active {
-  opacity: 1;
-  visibility: visible;
+.press-article-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.press-quote {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.press-quote p {
-  margin: 0;
+.press-article-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 1rem 0.75rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   font-family: var(--font-body);
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-size: clamp(0.75rem, 2.2vw, 0.95rem);
   font-style: italic;
   line-height: 1.35;
+  text-align: left;
   color: var(--paper);
 }
 
+.press-article-title {
+  margin: 1.5rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 4vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--paper);
+  transition: color 0.2s ease;
+}
+
+.press-article:hover .press-article-title,
+.press-article:focus-visible .press-article-title {
+  color: var(--neon-pink-bright);
+}
+
 .press-source {
-  margin: 1.25rem 0 0;
+  margin: 1rem 0 0;
   font-family: var(--font-display);
   font-size: clamp(0.95rem, 2.4vw, 1.25rem);
   font-weight: 700;
@@ -1056,53 +1066,6 @@ a:hover {
 
 .press-source cite {
   font-style: normal;
-}
-
-.press-neon-sign {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.85rem;
-  margin-top: 2.25rem;
-}
-
-.press-neon-segment {
-  width: 1.75rem;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(228, 107, 106, 0.22);
-  box-shadow: none;
-  transition:
-    width 0.45s ease,
-    background 0.45s ease,
-    box-shadow 0.45s ease,
-    opacity 0.45s ease;
-}
-
-.press-neon-segment.is-active {
-  width: 3rem;
-  background: var(--neon-pink-bright);
-  box-shadow: var(--neon-glow-pink);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .press-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .press-item {
-    grid-row: auto;
-    grid-column: auto;
-    opacity: 1;
-    visibility: visible;
-    transition: none;
-  }
-
-  .press-neon-sign {
-    display: none;
-  }
 }
 
 .lnt-bottom {
