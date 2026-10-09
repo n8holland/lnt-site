@@ -104,14 +104,13 @@ body > :not(.noise):not(.scanlines):not(.site-header) {
   width: 100%;
   aspect-ratio: 975 / 200;
   background-color: var(--logo-accent);
-  -webkit-mask-image: url("../images/lntbackground.avif");
-  mask-image: url("../images/lntbackground.avif");
+  -webkit-mask-image: url("../images/lntbackground-mask.png");
+  mask-image: url("../images/lntbackground-mask.png");
   -webkit-mask-size: 100% auto;
   mask-size: 100% auto;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-mode: luminance;
-  mask-mode: luminance;
+  mask-mode: alpha;
 }
 
 main {
