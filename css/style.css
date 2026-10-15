@@ -531,10 +531,12 @@ a:hover {
 }
 
 .section {
+  --section-pad-y: clamp(4rem, 9vw, 6rem);
   position: relative;
   max-width: 54rem;
   margin: 0 auto;
-  padding: clamp(4rem, 9vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+  padding: var(--section-pad-y) clamp(1.25rem, 5vw, 3rem);
+  scroll-margin-top: calc(var(--header-h) - var(--section-pad-y) + 1.5rem);
 }
 
 .section-head {
