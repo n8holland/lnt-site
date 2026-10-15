@@ -827,6 +827,55 @@ a:hover {
   transform: scale(1.02);
 }
 
+.btn.btn--platform {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.85rem 1.6rem;
+  border: none;
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn.btn--platform:hover {
+  transform: scale(1.04);
+}
+
+.btn-platform-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+}
+
+.btn.btn--spotify {
+  color: #000;
+  background: #1ed760;
+}
+
+.btn.btn--platform.btn--spotify:hover {
+  color: #000;
+  background: #3be477;
+}
+
+.btn.btn--bandcamp {
+  color: #fff;
+  background: #408294;
+}
+
+.btn.btn--platform.btn--bandcamp:hover {
+  color: #fff;
+  background: #4a95a9;
+}
+
 @media (min-width: 769px) and (min-height: 521px) {
   .music-platforms {
     flex-direction: row;
